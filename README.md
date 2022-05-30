@@ -16,6 +16,7 @@ fetchSuperHeroes, => Call API
     enabled: false, // Sẽ không call api khi Component Mount, WindowFocus => Default: true
     onSuccess: onSuccess, // Handle event onSuccess by callback
     onError: onError, // Handle event onError by callback
+    retry: Số lần call lại "n" lần api khi call không thành công, sau "n" lần call lại api không thành công thì trả về Error => Default: 3
     select: (data) => {
         const superHeroNames = data.data.map((hero) => hero?.name);
         return superHeroNames;
