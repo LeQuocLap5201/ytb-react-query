@@ -1,12 +1,11 @@
 ## useQuery nhận vào 3 đối số
+
     - Đối số 1: name unique Key
     - Đối số 2: hàm xứ lý call api
     - Đối số 3: (không bắt buộc) là một Object chứa các định dạng khi call api
 
-useQuery(
-"super-heroes", => unique Key
-fetchSuperHeroes, => Call API
-{
+## useQuery("super-heroes"=> unique Key, fetchSuperHeroes => Call API, { options });
+**Options**
     - cacheTime: 5000, // Thời gian clear Cache => Default: 5p
     - staleTime: 30000, // Thời gian lấy api mới nhất => Default: 0s
     - refetchOnMount: true, // Call lại api khi Component Mount => Default: true (false, 'always')
@@ -22,5 +21,3 @@ fetchSuperHeroes, => Call API
         return superHeroNames;
         },
     => select giúp convert từ api trả về sang dữ liệu mà FE mong muốn. select có giá trị truyền vào là 'data' từ api trả về và Return dữ liệu mà FE mong muốn sau khi đã xử lý
-}
-);
