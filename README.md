@@ -5,7 +5,9 @@
     - Đối số 3: (không bắt buộc) là một Object chứa các định dạng khi call api
 
 ## useQuery("super-heroes"=> unique Key, fetchSuperHeroes => Call API, { options });
+
 **Options**
+
     - cacheTime: 5000, // Thời gian clear Cache => Default: 5p
     - staleTime: 30000, // Thời gian lấy api mới nhất => Default: 0s
     - refetchOnMount: true, // Call lại api khi Component Mount => Default: true (false, 'always')
