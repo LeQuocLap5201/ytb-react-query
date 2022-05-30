@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+// useQuery nhận vào 3 đối số
+// Đối số 1: name unique Key
+// Đối số 2: hàm xứ lý call api
+// Đối số 3: (không bắt buộc) là một Object chứa các định dạng khi call api
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+useQuery(
+"super-heroes", // unique Key
+fetchSuperHeroes,
+{
+// cacheTime: 5000, // Thời gian clear Cache => Default: 5p
+// staleTime: 30000, // Thời gian lấy api mới nhất => Default: 0s
+// refetchOnMount: true, // Call lại api khi Component Mount => Default: true (false, 'always')
+// refetchOnWindowFocus: true, //Khi window được focus, hay quay lại thì api sẽ được call lại để lấy data mới nhất => Default: true (false, 'always')
+// refetchInterval: false, // Sau bao nhiều thời gian sẽ tự động call lại api, để làm mới data, sẽ không call api nếu không Focus vào window(Nhưng nếu vẫn muốn tự động thì dùng 'refetchIntervalInBackground' ) => Default: false
+// refetchIntervalInBackground: true, // => Default: false
+// enabled: false, // Sẽ không call api khi Component Mount, WindowFocus => Default: true
+onSuccess: onSuccess, // Handle event onSuccess by callback
+onError: onError, // Handle event onError by callback
+// select: (data) => {
+// const superHeroNames = data.data.map((hero) => hero?.name);
+// return superHeroNames;
+// },
+// select giúp convert từ api trả về sang dữ liệu mà FE mong muốn. select có giá trị truyền vào là 'data' từ api trả về và Return dữ liệu mà FE mong muốn sau khi đã xử lý
+}
+);
