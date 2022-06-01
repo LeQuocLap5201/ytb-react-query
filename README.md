@@ -23,3 +23,4 @@
         return superHeroNames;
         },
     => select giúp convert từ api trả về sang dữ liệu mà FE mong muốn. select có giá trị truyền vào là 'data' từ api trả về và Return dữ liệu mà FE mong muốn sau khi đã xử lý
+    - keepPreviousData: true // Giữ dữ liệu trước đó => Default: false
